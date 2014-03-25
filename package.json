@@ -1,0 +1,26 @@
+{
+  "name": "simpcli",
+  "version": "0.0.1",
+  "description": "A Simple Cli",
+  "main": "cli.js",
+  "dependencies": {
+    "es6-promise": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sterlingwes/simpcli.git"
+  },
+  "keywords": [
+    "simpcli",
+    "simple",
+    "cli",
+    "client",
+    "command"
+  ],
+  "author": "Wes Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sterlingwes/simpcli/issues"
+  },
+  "homepage": "https://github.com/sterlingwes/simpcli"
+}
