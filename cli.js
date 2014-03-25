@@ -7,7 +7,7 @@ function Cli(argList, flags) {
     this.args = process.argv.slice(2);
     
     if(!this.args.length)
-        this.args.push('help');
+        this.args.push('start');
     
     this.tasks = this.args.map(function(arg, idx) {
         var tdef = argList[arg],
@@ -43,7 +43,7 @@ Cli.prototype.getArgs = function(pos) {
       , foundOther = false;
 
     return args.filter(function(arg) {
-        if(this.argList[arg])   foundOther = true;
+        //if(this.argList[arg])   foundOther = true;
         return !foundOther && arg;
     }.bind(this));
 };
