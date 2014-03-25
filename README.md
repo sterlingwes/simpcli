@@ -34,6 +34,18 @@ Need help with something? Too bad.
 Need help with life? Too bad.
 ```
 
+Ensure you add the `bin` property to your `package.json` in order gain access to your cli.
+
+```
+{...
+    "bin": {
+        "mycli":    "./cli.js"
+    }
+...}
+```
+
+You may need to run `npm link` from that directory if you did not install your module globally.
+
 ## API
 
 This module exports an object prototype that you instantiate. Each instance can use the following (on the `cli` instance or from within argument handler functions using the context, `this`):
