@@ -1,10 +1,11 @@
 {
   "name": "simpcli",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A Simple Cli",
   "main": "cli.js",
   "dependencies": {
-    "es6-promise": ""
+    "es6-promise": "",
+    "win-spawn": ""
   },
   "repository": {
     "type": "git",

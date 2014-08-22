@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 var Cli = require('../cli')
   , cli = new Cli({
 

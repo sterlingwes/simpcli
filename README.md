@@ -5,6 +5,7 @@
 Just instantiate with a mapping of argument names to handler functions.
 
 ```javascript
+#! /usr/bin/env node
 var Cli = require('simpcli')
   , cli = new Cli({
   
@@ -75,12 +76,16 @@ Where `resolver` is a function with `resolve` and `reject` arguments per the [Pr
 
 See [Node child_process docs](http://nodejs.org/docs/latest/api/child_process.html#child_process_child_process_exec_command_options_callback).
 
+### spawn()
+
+See [win-spawn](http://npmjs.org/package/win-spawn).
+
 ## Todo
 
 *   Argument chaining
 *   Flag 'hook' support
 *   Object definitions for arguments
-*   Use ES6 promises within Node to remove all dependencies
+*   Use ES6 promises within Node to remove dependency
 *   Colours and other useless but fun things
 
 ### License
