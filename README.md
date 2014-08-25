@@ -64,6 +64,21 @@ cli.chain.then(function() {
 });
 ```
 
+### parseFlags() *method*
+
+Takes the raw arguments passed to your argument handler and converts them to an object mapping. For example, `mycli start -p 8181` with the following handler:
+
+```
+start: function() {
+  var flags = this.parseFlags(arguments);
+  console.log(flags);
+}
+```
+
+Would print `{ p: 8181 }` in the console.
+
+A flag without a value would yield a `true` boolean value. Flags preceded by double dashes are also supported for long form flags (`--port`).
+
 ### print() *method*
 
 Console.log alias. Will allow for better display control.

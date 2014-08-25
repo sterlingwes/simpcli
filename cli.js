@@ -8,6 +8,7 @@ var PromiseApi = require('es6-promise')
  * our main run()
  */
 function Cli(argList, flags) {
+  if(!argList) argList = {};
   this.addDefaults(argList);
   this.args = process.argv.slice(2);
   
@@ -70,6 +71,30 @@ Cli.prototype.getArgs = function(pos) {
       //if(this.argList[arg])   foundOther = true;
       return !foundOther && arg;
   }.bind(this));
+};
+
+/*
+ * parseFlags() - returns an object mapping of flags to values (without the dash - and all lowercase)
+ */
+Cli.prototype.parseFlags = function(args) {
+  args = [].slice.call(args,0);
+  var map = {}
+    , last;
+  
+  args.forEach(function(a) {
+    if(/^\-\-/.test(a)) { // longform
+      last = a.substr(2).toLowerCase();
+      map[last] = true;
+    }
+    else if(/^\-/.test(a)) { // shortform
+      last = a.substr(1).toLowerCase();
+      map[last] = true;
+    }
+    else
+      map[last] = a; // set value
+  });
+  
+  return map;
 };
 
 /*
