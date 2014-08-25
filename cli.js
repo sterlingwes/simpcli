@@ -7,13 +7,17 @@ var PromiseApi = require('es6-promise')
 /*
  * our main run()
  */
-function Cli(argList, flags) {
+function Cli(argList, flags, testProcess) {
+  
   if(!argList) argList = {};
   this.addDefaults(argList);
-  this.args = process.argv.slice(2);
+  this.args = (testProcess || process).argv.slice(2);
+  this.flags = this.args.filter(function(arg) {
+    return arg.indexOf('-')===0;
+  });
   
-  if(!this.args.length)
-    this.args.push('start'); // default to using start()
+  if((this.args.length - this.flags.length) === 0)
+    this.args.unshift('start'); // default to using start()
   
   this.tasks = this.args.map(function(arg, idx) {
     // iterate each argument and determine if an object or a function
@@ -33,11 +37,6 @@ function Cli(argList, flags) {
     return task;
     
   }).filter(function(task) { return !!task; }); // filter out any marked false
-  
-  // now we grab any flags in our args
-  this.flags = this.args.filter(function(arg) {
-      return arg.indexOf('-')===0;
-  });
   
   this.argList = argList;
   this.flagList = flags;

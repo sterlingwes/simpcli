@@ -1,5 +1,5 @@
 var Cli = require('../cli')
-  , cli = new Cli()
+  , cli = new Cli(null,null,{argv:'node ph -p 8181'.split(/\s/)})
   
   , testFunc = function() {
     return cli.parseFlags(arguments);
